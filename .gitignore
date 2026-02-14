@@ -1,0 +1,16 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Hestia specific
+.htaccess.backup
+error_log
+*.log
+
+# Temporary files
+*~
+*.tmp
