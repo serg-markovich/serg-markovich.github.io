@@ -2,7 +2,7 @@
    Serg Markovich Portfolio - Tech Minimalist Theme
    ===================================================== */
 
-/* --- CSS Variables --- */
+/* --- CSS Variables (легко менять цвета) --- */
 :root {
     --bg-primary: #0d1117;        /* GitHub dark bg */
     --bg-secondary: #161b22;      /* Darker sections */
@@ -398,6 +398,39 @@ footer {
     .error-page h1 {
         font-size: 4rem;
     }
+}
+
+/* =====================================================
+   Language Switcher
+   ===================================================== */
+
+.lang-switcher {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(22, 27, 34, 0.9);
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    font-size: 14px;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.lang-switcher a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    font-family: var(--font-mono);
+    transition: color 0.3s ease;
+}
+
+.lang-switcher a.active {
+    color: var(--accent-primary);
+}
+
+.lang-switcher a:hover {
+    color: var(--accent-primary);
 }
 
 @media (max-width: 480px) {
