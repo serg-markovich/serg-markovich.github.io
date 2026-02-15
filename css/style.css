@@ -2,7 +2,7 @@
    Serg Markovich Portfolio - Tech Minimalist Theme
    ===================================================== */
 
-/* --- CSS Variables (легко менять цвета) --- */
+/* --- CSS Variables --- */
 :root {
     --bg-primary: #0d1117;        /* GitHub dark bg */
     --bg-secondary: #161b22;      /* Darker sections */
@@ -414,3 +414,4 @@ footer {
         padding: 0.75rem;
     }
 }
+
