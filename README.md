@@ -49,7 +49,7 @@ git push origin main
 
 ### To Production VPS (manual)
 ```bash
-rsync -avz --progress --delete ./ root@158.220.127.16:/home/sergmrx/web/serg-markovich.de/public_html/ --exclude='.git' --exclude='README.md'
+rsync -avz --progress --delete ./ admin@IP:/home/sergmrx/web/serg-markovich.de/public_html/ --exclude='.git' --exclude='README.md'
 ```
 
 ## 📝 TODO
