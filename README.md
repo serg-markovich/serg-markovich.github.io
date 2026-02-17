@@ -19,4 +19,3 @@ Professional website of Sergey Markovich - DevOps Engineer
 - [ ] GitHub Actions CI/CD
 - [ ] Automated testing
 - [ ] Monitoring
-
