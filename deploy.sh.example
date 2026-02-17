@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Deployment script template
+# Usage: 
+#   1. Copy to deploy.sh: cp deploy.sh.example deploy.sh
+#   2. Edit deploy.sh with your credentials
+#   3. Run: ./deploy.sh
+
+echo "🚀 Deploying to production VPS..."
+
+rsync -avz --progress --delete \
+  ./ \
+  USER@HOST:/path/to/public_html/ \
+  --exclude='.git' \
+  --exclude='README.md' \
+  --exclude='deploy.sh' \
+  --exclude='deploy.sh.example' \
+  --exclude='.gitignore'
+
+echo "✅ Deployment complete!"
+echo "🌐 Check: https://your-domain.com"
+

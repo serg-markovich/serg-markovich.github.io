@@ -2,15 +2,22 @@
 .DS_Store
 Thumbs.db
 
+# Deployment & secrets
+deploy.sh
+.env
+
+# Logs
+*.log
+error_log
+
 # IDE
 .vscode/
 .idea/
 
 # Hestia specific
 .htaccess.backup
-error_log
-*.log
 
 # Temporary files
 *~
 *.tmp
+
