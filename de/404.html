@@ -27,11 +27,12 @@
         <header>
             <h1>404</h1>
             <p class="subtitle">Seite nicht gefunden</p>
-                <nav>
-                    <a href="/de/">← Zurück zur Startseite</a>
-                    <a href="/de/contacts.html">/contacts</a>
-                    <a href="https://notes.serg-markovich.de">/notes</a>
-                </nav>
+                <div id="nav-placeholder"></div>
+                <script>
+                fetch('/de/nav.html')
+                    .then(r => r.text())
+                    .then(html => document.getElementById('nav-placeholder').innerHTML = html);
+                </script>
         </header>
         <section class="error-content">
             <p>Hoppla! Die gesuchte Seite existiert nicht.</p>    

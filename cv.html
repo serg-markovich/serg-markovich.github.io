@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Serg Markovich - DevOps / Platform Engineer - Resume/CV">
+    <title>CV - Serg Markovich</title>
+    <style>
+        /* ===== CSS VARIABLES (Light Theme by default) ===== */
+        :root {
+    --bg-primary: #0d1117;        /* Тёмная по умолчанию */
+    --bg-secondary: #161b22;
+    --text-primary: #c9d1d9;
+    --text-secondary: #8b949e;
+    --accent-primary: #58a6ff;
+    --accent-secondary: #1f6feb;
+    --border-color: #30363d;
+    --shadow: rgba(0, 0, 0, 0.5);
+}
+
+/* Light theme variables */
+body.light-theme {
+    --bg-primary: #ffffff;        /* Светлая как опция */
+    --bg-secondary: #f6f8fa;
+    --text-primary: #24292f;
+    --text-secondary: #57606a;
+    --accent-primary: #0969da;
+    --accent-secondary: #0550ae;
+    --border-color: #d0d7de;
+    --shadow: rgba(0, 0, 0, 0.1);
+}
+
+
+        /* ===== BASE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* ===== HEADER & CONTROLS ===== */
+        .page-header {
+            background-color: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px var(--shadow);
+        }
+
+        .header-controls {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--accent-primary);
+            color: #ffffff;
+            padding: 10px 18px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-secondary);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+
+        .btn-secondary {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--bg-secondary);
+            border-color: var(--accent-primary);
+        }
+
+        /* ===== RESUME CONTAINER ===== */
+        .resume-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* ===== HEADER WITH PHOTO ===== */
+        .resume-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .header-text {
+            flex-grow: 1;
+        }
+
+        h1 {
+            margin: 0 0 8px 0;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .subtitle {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin: 0 0 12px 0;
+        }
+
+        .contact-info {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .contact-info a {
+            color: var(--accent-primary);
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .profile-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--border-color);
+            margin-left: 30px;
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+
+        /* ===== SECTIONS ===== */
+        h2 {
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 6px;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+
+        ul {
+            margin: 0 0 20px 0;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* ===== JOB BLOCKS ===== */
+        .job-block {
+            margin-bottom: 30px;
+            page-break-inside: avoid;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 4px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .job-title {
+            font-weight: 700;
+            font-size: 16px;
+            color: var(--text-primary);
+        }
+
+        .job-date {
+            font-weight: 600;
+            color: var(--text-secondary);
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        .job-company {
+            font-style: italic;
+            margin-bottom: 10px;
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+
+        /* ===== SKILLS TABLE ===== */
+        .skills-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .skills-table td {
+            padding: 8px 0;
+            vertical-align: top;
+        }
+
+        .skills-category {
+            font-weight: 600;
+            width: 28%;
+            color: var(--text-primary);
+        }
+
+        .skills-table td:last-child {
+            color: var(--text-secondary);
+        }
+
+        /* ===== PRINT OPTIMIZATION ===== */
+        @media print {
+            body {
+                background-color: #ffffff !important;
+                color: #000000 !important;
+            }
+
+            .page-header,
+            .btn {
+                display: none !important;
+            }
+
+            .resume-container {
+                margin: 0;
+                padding: 0;
+            }
+
+            h1, h2, .job-title, strong {
+                color: #000000 !important;
+            }
+
+            .contact-info,
+            .job-company,
+            .job-date,
+            li,
+            .skills-table td {
+                color: #333333 !important;
+            }
+
+            a {
+                color: #000000 !important;
+                text-decoration: none;
+            }
+
+            .job-block {
+                page-break-inside: avoid;
+            }
+
+            h2 {
+                page-break-after: avoid;
+            }
+
+            @page {
+                margin: 1.5cm;
+            }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .resume-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-photo {
+                margin: 20px 0 0 0;
+                order: -1;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+
+            .subtitle {
+                font-size: 18px;
+            }
+
+            .header-controls {
+                flex-direction: column;
+            }
+
+            .job-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .skills-category {
+                width: 100%;
+                padding-bottom: 0;
+            }
+
+            .skills-table td:last-child {
+                padding-top: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER WITH CONTROLS -->
+    <header class="page-header">
+        <div class="header-controls">
+            <a href="/" class="btn btn-secondary">← Main Page</a>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <button id="theme-toggle" class="btn btn-secondary">
+                    <span id="theme-icon">🌙</span> Toggle Theme
+                </button>
+                <a href="Serg_Markovich_CV.pdf" download class="btn">
+                    📄 Download PDF
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- RESUME CONTENT -->
+    <main class="resume-container">
+
+        <div class="resume-header">
+            <div class="header-text">
+                <h1>Serg Markovich</h1>
+                <div class="subtitle">DevOps / Platform Engineer</div>
+                <div class="contact-info">
+                    Stuttgart Area, Germany<br>
+                    <a href="mailto:me@serg-markovich.de">me@serg-markovich.de</a> | 
+                    <a href="https://serg-markovich.de" target="_blank">serg-markovich.de</a> | 
+                    <a href="https://www.linkedin.com/in/serg-markovich/" target="_blank">LinkedIn</a> | 
+                    <a href="https://github.com/serg-markovich" target="_blank">GitHub</a>
+                </div>
+            </div>
+            <img src="me.jpeg" alt="Serg Markovich" class="profile-photo">
+        </div>
+
+        <h2>Summary of Qualifications</h2>
+        <ul>
+            <li><strong>Platform Engineering:</strong> Proven experience deploying and operating production-grade self-hosted infrastructure (Docker, Supabase, PostgreSQL) for medical applications.</li>
+            <li><strong>Infrastructure Optimization:</strong> Expertise in migrating cloud-native services to on-premise/VPS solutions, ensuring data localization and cost reduction.</li>
+            <li><strong>Security & Automation:</strong> Hands-on experience with Linux system administration (systemd, permissions), container security, and automated deployment pipelines.</li>
+            <li><strong>Continuous Learning:</strong> Actively pursuing Microsoft Certified: Azure Administrator Associate (AZ-104); committed to mastering Kubernetes and modern IaC stacks.</li>
+        </ul>
+
+        <h2>Technical Skills</h2>
+        <table class="skills-table">
+            <tr>
+                <td class="skills-category">Cloud & Infrastructure:</td>
+                <td>Microsoft Azure (AZ-104 in progress), Hetzner Cloud (VPS Management), Docker, Docker Compose, Linux (Ubuntu/Debian), Nginx, Traefik</td>
+            </tr>
+            <tr>
+                <td class="skills-category">CI/CD & Automation:</td>
+                <td>GitHub Actions, Bash Scripting, Systemd Services, App Store Connect / Google Play Console pipelines</td>
+            </tr>
+            <tr>
+                <td class="skills-category">Database & Backend:</td>
+                <td>Supabase (Self-hosted & Cloud), PostgreSQL, Firebase (FCM), REST APIs</td>
+            </tr>
+            <tr>
+                <td class="skills-category">Monitoring & Tools:</td>
+                <td>Uptime Kuma, Basic Prometheus/Grafana concepts, Obsidian (PKM), MkDocs (Documentation as Code)</td>
+            </tr>
+            <tr>
+                <td class="skills-category">Languages:</td>
+                <td>Bash, SQL, YAML, Basic Python</td>
+            </tr>
+        </table>
+
+        <h2>Technical Projects & Experience</h2>
+
+        <div class="job-block">
+            <div class="job-header">
+                <span class="job-title">Full-Cycle Medical Platform (GastroClinic)</span>
+                <span class="job-date">Jan 2025 – Oct 2025</span>
+            </div>
+            <div class="job-company">DevOps & Mobile Infrastructure Engineer</div>
+            <ul>
+                <li><strong>Infrastructure Migration:</strong> Successfully migrated a production backend from Supabase Cloud to a self-hosted Dockerized environment (16+ microservices) on Hetzner VPS to meet data residency requirements.</li>
+                <li><strong>Reliability Engineering:</strong> Diagnosed and resolved critical failures in Supabase Realtime service, restoring live patient data synchronization.</li>
+                <li><strong>Release Management:</strong> Orchestrated the build and release process for iOS and Android applications, handling signing, certification, and publication to App Store and Google Play.</li>
+                <li><strong>Integration:</strong> Engineered a robust notification system aggregating Firebase Cloud Messaging (FCM), OnePlus Push, and transactional SMTP services.</li>
+                <li><strong>Security:</strong> Hardened instance security, managed firewall rules, and standardized configuration management via environment variables.</li>
+            </ul>
+        </div>
+
+        <div class="job-block">
+            <div class="job-header">
+                <span class="job-title">Privacy-Focused Homelab Stack</span>
+                <span class="job-date">2024 – Present</span>
+            </div>
+            <div class="job-company">Self-Hosted Infrastructure Engineer | Open Source</div>
+            <ul>
+                <li><strong>Architecture:</strong> Designed and maintained a secure, privacy-first local cloud stack using Docker and systemd.</li>
+                <li><strong>AI Operations:</strong> Deployed local LLM inference (Ollama) with custom systemd service wrappers for resource management and background execution.</li>
+                <li><strong>Networking:</strong> Configured secure remote access via OpenVPN and reverse proxies, ensuring encrypted connectivity to internal services (Nextcloud, Notes).</li>
+                <li><strong>Automation:</strong> Developed custom Bash scripts for automated backups, service health checks, and container updates.</li>
+                <li><strong>Documentation:</strong> Maintain comprehensive technical documentation (MkDocs) covering setup, disaster recovery, and architecture decisions.</li>
+            </ul>
+        </div>
+
+        <h2>Web Infrastructure Background</h2>
+        <div class="job-block">
+            <div class="job-header">
+                <span class="job-title">IT Entrepreneur & Webmaster</span>
+                <span class="job-date">2017 – 2025</span>
+            </div>
+            <ul>
+                <li>Managed high-volume web hosting infrastructure peaking at <strong>700+ concurrent CMS instances</strong> (WordPress, static sites).</li>
+                <li>Optimized server performance (Apache/Nginx/MySQL) to handle fluctuating traffic loads while minimizing hosting costs.</li>
+                <li>Executed massive consolidation strategy, reducing infrastructure footprint to ~250 active assets.</li>
+            </ul>
+        </div>
+
+        <h2>Education & Certifications</h2>
+        <table class="skills-table">
+            <tr>
+                <td class="skills-category">Certifications:</td>
+                <td><strong>Microsoft Certified: Azure Administrator Associate (AZ-104)</strong> — <em>In Progress (Spring 2026)</em></td>
+            </tr>
+            <tr>
+                <td class="skills-category">Languages:</td>
+                <td>
+                    <strong>German:</strong> A2/B1 (Integration Course in progress, exp. April 2026)<br>
+                    <strong>English:</strong> B2 (Professional Working Proficiency)<br>
+                    <strong>Russian / Ukrainian:</strong> Native
+                </td>
+            </tr>
+            <tr>
+                <td class="skills-category">Degree:</td>
+                <td>Pedagogical University (Social Psychology) — <em>2004–2009</em></td>
+            </tr>
+        </table>
+
+    </main>
+
+    <!-- THEME TOGGLE SCRIPT -->
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const body = document.body;
+
+        // Check saved theme preference or default to dark
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    if (currentTheme === 'light') {
+        body.classList.add('light-theme');
+        themeIcon.textContent = '🌙';
+    } else {
+        themeIcon.textContent = '☀️';
+    }
+
+toggleBtn.addEventListener('click', () => {
+    body.classList.toggle('light-theme');
+    
+    if (body.classList.contains('light-theme')) {
+        themeIcon.textContent = '🌙';
+        localStorage.setItem('theme', 'light');
+    } else {
+        themeIcon.textContent = '☀️';
+        localStorage.setItem('theme', 'dark');
+    }
+});
+    </script>
+
+</body>
+</html>
+

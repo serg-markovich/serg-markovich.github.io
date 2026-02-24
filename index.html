@@ -11,7 +11,7 @@
     <link rel="alternate" hreflang="de" href="https://serg-markovich.de/de/" />
     <link rel="alternate" hreflang="x-default" href="https://serg-markovich.de/" />
     
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <!-- Language Switcher -->
@@ -27,11 +27,12 @@
         <header>
             <h1>Serg Markovich</h1>
             <p class="subtitle">DevOps Engineer | Stuttgart, Germany</p>
-            <nav>
-                <a href="/">/home</a>
-                <a href="/contacts.html">/contacts</a>
-                <a href="https://notes.serg-markovich.de">/notes</a>
-            </nav>
+                <div id="nav-placeholder"></div>
+                <script>
+                fetch('/nav.html')
+                    .then(r => r.text())
+                    .then(html => document.getElementById('nav-placeholder').innerHTML = html);
+                </script>
         </header>
         <section class="about">
             <h2>About</h2>

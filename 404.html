@@ -26,12 +26,12 @@
         <header>  
             <h1>404</h1>
             <p class="subtitle">Page Not Found</p>
-            <nav>
-                <a href="/">/home</a>
-                <a href="/contacts.html">/contacts</a>
-                <a href="https://notes.serg-markovich.de">/notes</a>
-
-            </nav>
+                <div id="nav-placeholder"></div>
+                <script>
+                fetch('/nav.html')
+                    .then(r => r.text())
+                    .then(html => document.getElementById('nav-placeholder').innerHTML = html);
+                </script>
         </header>
         <section class="error-content">
             <p>Oops! The page you're looking for doesn't exist.</p>

@@ -26,12 +26,12 @@
         <header>
             <h1>Kontakt</h1>
             <p class="subtitle">Kontaktieren Sie mich</p>
-            <nav>
-                <a href="/de/">/start</a>
-                <a href="/de/contacts.html">/kontakt</a>
-                <a href="https://notes.serg-markovich.de">/notes</a>
-
-            </nav>
+                <div id="nav-placeholder"></div>
+                <script>
+                fetch('/de/nav.html')
+                    .then(r => r.text())
+                    .then(html => document.getElementById('nav-placeholder').innerHTML = html);
+                </script>
         </header>
         <section class="contact-info">
             <h2>Kontaktinformationen</h2>
