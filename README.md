@@ -2,18 +2,19 @@
 
 Professional website of Sergey Markovich - DevOps Engineer
 
-## 🌐 Live Sites
-- **Production**: serg-markovich.de
-- **Demo/Staging**: serg-markovich.github.io
+## Live Sites
+- **Production**: serg-markovich.de (Cloudflare Pages)
+- **Staging**: serg-markovich.github.io (GitHub Pages)
 
-## 🛠 Tech Stack
+## Tech Stack
 - HTML5, CSS3
-- Hosted on: VPS (Hestia CP)
+- Hosted on: Cloudflare Pages
+- DNS: Cloudflare
 - Version Control: Git/GitHub
 
-## 📦 Deployment
-- **GitHub Pages**: Automatic via `git push`
-- **Production**: Manual rsync (credentials stored securely)
+## Deployment
+- **Production**: Auto-deploy on push to `main` → serg-markovich.de
+- **Preview**: Auto-deploy on any branch → *.pages.dev URL
 
 ## 📝 TODO
 - [ ] GitHub Actions CI/CD
