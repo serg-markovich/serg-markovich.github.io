@@ -27,7 +27,7 @@
             --shadow: rgba(0, 0, 0, 0.1);
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: var(--text-primary); background-color: var(--bg-primary); transition: background-color 0.3s ease, color 0.3s ease; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: var(--text-primary); background-color: var(--bg-primary); transition: background-color 0.3s, color 0.3s; }
         .page-header { background-color: var(--bg-secondary); border-bottom: 1px solid var(--border-color); padding: 1rem 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px var(--shadow); }
         .header-controls { max-width: 900px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
         .btn { display: inline-flex; align-items: center; gap: 8px; background-color: var(--accent-primary); color: #ffffff; padding: 10px 18px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.2s ease; border: none; cursor: pointer; }
@@ -53,16 +53,23 @@
         .job-title { font-weight: 700; font-size: 16px; color: var(--text-primary); }
         .job-date { font-weight: 600; color: var(--text-secondary); font-size: 14px; white-space: nowrap; }
         .job-company { font-style: italic; margin-bottom: 10px; color: var(--text-secondary); font-size: 15px; }
-        .skills-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; page-break-inside: avoid; }
+        .skills-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
         .skills-table td { padding: 8px 15px 8px 0; vertical-align: top; }
-        .skills-category { font-weight: 600; width: 28%; min-width: 160px; color: var(--text-primary); }
+        .skills-category { font-weight: 600; width: 28%; min-width: 150px; color: var(--text-primary); }
         .skills-table td:last-child { color: var(--text-secondary); }
-        .proj-block { margin-bottom: 12px; }
-        .proj-name { font-weight: 700; font-size: 15px; color: var(--accent-primary); }
-        .proj-desc { color: var(--text-secondary); font-size: 14px; margin-top: 2px; }
+        .proj-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+        .proj-card { background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 14px 16px; }
+        .proj-name { font-weight: 700; font-size: 14px; margin-bottom: 5px; }
+        .proj-name a { color: var(--accent-primary); text-decoration: none; }
+        .proj-name a:hover { text-decoration: underline; }
+        .proj-desc { color: var(--text-secondary); font-size: 13px; line-height: 1.5; }
+        .proj-tags { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 5px; }
+        .proj-tags span { background: var(--bg-primary); border: 1px solid var(--border-color); color: var(--text-secondary); font-size: 11px; padding: 2px 8px; border-radius: 12px; }
+        .github-link { display: inline-flex; align-items: center; gap: 6px; color: var(--accent-primary); font-size: 13px; text-decoration: none; margin-bottom: 16px; }
+        .github-link:hover { text-decoration: underline; }
         @media print {
             body { background-color: #ffffff !important; color: #000000 !important; }
-            .page-header, .btn { display: none !important; }
+            .page-header { display: none !important; }
             .resume-container { margin: 0; padding: 0; }
             h1, h2, .job-title, strong { color: #000000 !important; }
             .contact-info, .job-company, .job-date, li, .skills-table td { color: #333333 !important; }
@@ -70,6 +77,10 @@
             .job-block { page-break-inside: avoid; }
             h2 { page-break-after: avoid; }
             .profile-box { border-left: 3px solid #0969da; background: #f6f8fa !important; color: #000 !important; }
+            .proj-grid { grid-template-columns: 1fr 1fr; }
+            .proj-card { background: #f6f8fa !important; border: 1px solid #ddd !important; }
+            .proj-tags { display: none; }
+            .profile-photo { display: none; }
             @page { margin: 1.5cm; }
         }
         @media (max-width: 768px) {
@@ -80,7 +91,7 @@
             .header-controls { flex-direction: column; }
             .job-header { flex-direction: column; align-items: flex-start; }
             .skills-category { width: 100%; padding-bottom: 0; }
-            .skills-table td:last-child { padding-top: 4px; }
+            .proj-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -93,8 +104,8 @@
                 <button id="theme-toggle" class="btn btn-secondary">
                     <span id="theme-icon">🌙</span> Design wechseln
                 </button>
-                <a href="Serg_Markovich_CV.pdf" download class="btn">
-                    📄 PDF herunterladen
+                <a href="Serg_Markovich_Lebenslauf.pdf" download class="btn">
+                    &#128196; PDF herunterladen
                 </a>
             </div>
         </div>
@@ -118,46 +129,45 @@
         </div>
 
         <div class="profile-box">
-            IT-Ingenieur und ehemaliger Unternehmer mit 10+ Jahren Erfahrung im Betrieb von
-            Web-Infrastrukturen im gro&szlig;en Ma&szlig;stab &mdash; bis zu 700 aktive Webprojekte,
-            verteiltes Team von 20 Personen, vollst&auml;ndige Server-Stack-Verantwortung.
-            2025 lieferte ich Backend-Infrastruktur und Mobile UI f&uuml;r eine internationale
-            medizinische SaaS-Plattform: selbst gehosteter Dockerized Stack auf Linux VPS,
-            Mobile-Builds via FlutterFlow, Release-Pipelines f&uuml;r iOS und Android.
-            Aktuell entwickle ich Open-Source-DevOps-Tools und bereite mich auf AZ-104 vor.
-            Ich bringe operationelle Reife und eigenverantwortliches Arbeiten in ein Team ein.
-            B&uuml;roarbeit bevorzugt &mdash; sofort verf&uuml;gbar im Raum Stuttgart.
+            IT-Ingenieur mit 10+ Jahren Erfahrung im Betrieb von Web-Infrastrukturen &mdash;
+            Linux-Server, Docker-basierte Deployments, CI/CD-Automatisierung.
+            2025 Aufbau und Betrieb eines selbst gehosteten <strong>14-Service-Supabase-Stacks</strong>
+            auf Hetzner VPS f&uuml;r eine produktive Healthcare-Plattform &mdash;
+            Kong API-Gateway, GoTrue Auth, PostgREST, Realtime, Storage, Edge Functions,
+            Supavisor Connection Pooler, Caddy Reverse Proxy.
+            Fokus auf zuverl&auml;ssige, selbst betriebene Infrastruktur und reproduzierbare Automatisierung.
+            Seit Mitte 2025 in Stuttgart ans&auml;ssig. Sofort verf&uuml;gbar &mdash; Hybrid bevorzugt.
         </div>
 
         <h2>Technische Kenntnisse</h2>
         <table class="skills-table">
             <tr>
                 <td class="skills-category">Cloud &amp; Infrastruktur:</td>
-                <td>Microsoft Azure (AZ-104 in Vorbereitung), Hetzner Cloud, Linux (Ubuntu / Debian), Nginx, Traefik</td>
+                <td>Hetzner Cloud, Microsoft Azure (AZ-104 in Vorbereitung), Linux (Ubuntu / Debian), Nginx, Caddy, Traefik</td>
             </tr>
             <tr>
                 <td class="skills-category">Container:</td>
-                <td>Docker, Docker Compose, Kubernetes (Laborumgebung)</td>
+                <td>Docker, Docker Compose (produktive Multi-Service-Stacks), Kubernetes (K3s/Minikube, lokal)</td>
             </tr>
             <tr>
                 <td class="skills-category">CI/CD &amp; Automatisierung:</td>
-                <td>GitHub Actions, Ansible (IaC-Provisionierung), Bash-Scripting, systemd-Dienstverwaltung</td>
+                <td>GitHub Actions, Ansible (IaC), Bash-Scripting, systemd Service Management</td>
             </tr>
             <tr>
                 <td class="skills-category">Datenbank &amp; Backend:</td>
-                <td>PostgreSQL, Supabase (selbst gehostet &amp; Cloud), Firebase (FCM), REST APIs</td>
-            </tr>
-            <tr>
-                <td class="skills-category">Mobile &amp; UI:</td>
-                <td>FlutterFlow (No-Code Mobile UI), App Store Connect, Google Play Console</td>
+                <td>PostgreSQL, Supabase (Self-Hosted &amp; Cloud), Supavisor / pgBouncer, Firebase (FCM), REST APIs</td>
             </tr>
             <tr>
                 <td class="skills-category">Monitoring:</td>
-                <td>Uptime Kuma, Prometheus / Grafana (in Vorbereitung), systemd journald</td>
+                <td>Uptime Kuma, Vector Log Aggregation, Prometheus / Grafana (in Aufbau)</td>
             </tr>
             <tr>
-                <td class="skills-category">Scripting:</td>
+                <td class="skills-category">Skripte:</td>
                 <td>Bash, Python, YAML, SQL</td>
+            </tr>
+            <tr>
+                <td class="skills-category">Mobile &amp; Release:</td>
+                <td>FlutterFlow, App Store Connect, Google Play Console (End-to-End Release-Pipelines)</td>
             </tr>
         </table>
 
@@ -165,99 +175,129 @@
 
         <div class="job-block">
             <div class="job-header">
-                <span class="job-title">Infrastruktur- &amp; Mobile Engineer</span>
+                <span class="job-title">Eigenst&auml;ndige IT-Projekte &amp; Weiterbildung</span>
+                <span class="job-date">Nov. 2025 &ndash; heute</span>
+            </div>
+            <div class="job-company">Stuttgart, Deutschland</div>
+            <ul>
+                <li>Entwicklung selbst gehosteter Infrastrukturl&ouml;sungen (eigenstack, eigenbase) mit Ansible, Docker, Kubernetes (K3s/Minikube in lokalen Testumgebungen).</li>
+                <li>Open-Source-Projekt <em>local-whisper-obsidian</em> &mdash; vollst&auml;ndig offline Voice-to-Note-Pipeline (Python, systemd, Docker).</li>
+                <li>Vorbereitung Microsoft AZ-104 (Azure Administrator Associate) &mdash; in Vorbereitung.</li>
+                <li>Abschluss Integrationskurs Deutsch B1 (Zertifikat 2026).</li>
+            </ul>
+        </div>
+
+        <div class="job-block">
+            <div class="job-header">
+                <span class="job-title">Infrastructure &amp; Mobile Engineer</span>
                 <span class="job-date">Feb. 2025 &ndash; Okt. 2025</span>
             </div>
-            <div class="job-company">Projektvertrag &middot; Internationale medizinische SaaS-Plattform &middot; Remote</div>
+            <div class="job-company">Freiberuflicher Vertrag &middot; Healthcare SaaS-Plattform &middot; Remote</div>
             <ul>
-                <li>Migration des Produktiv-Backends von Supabase Cloud auf einen selbst gehosteten Dockerized Stack auf Hetzner VPS (Ubuntu 22.04) &mdash; Datenlokalisierungsanforderungen erf&uuml;llt, kein kritischer Ausfall.</li>
-                <li>Betrieb einer Docker-Compose-Umgebung mit mehreren Diensten: Reverse Proxy, Datenbank, Realtime Engine, Storage, Authentifizierung und API-Gateway.</li>
-                <li>Diagnose und Behebung kritischer Fehler im Supabase Realtime-Dienst &mdash; Wiederherstellung der Live-Datensynchronisation auf iOS, Android und Web-Adminportal.</li>
-                <li>Entwicklung der mobilen Benutzeroberfl&auml;che mit FlutterFlow; vollst&auml;ndige Release-Pipelines f&uuml;r iOS und Android inkl. Code-Signing und Store-Ver&ouml;ffentlichung.</li>
-                <li>Sicherheits-Baseline: UFW-Firewall, SSH-H&auml;rtung, Secrets &uuml;ber Umgebungsvariablen, Container-Netzwerkisolierung.</li>
-                <li>Aufbau eines einheitlichen Push-Notification-Systems: Firebase Cloud Messaging, OEM Push (OnePlus), transaktionales SMTP.</li>
+                <li>Aufbau und Betrieb eines selbst gehosteten Supabase-Stacks mit <strong>14 Docker-Services</strong>: Kong API-Gateway, GoTrue Auth, PostgREST, Realtime-Engine, Storage, Edge Functions (Deno), Supavisor Connection Pooler, Caddy Reverse Proxy, Vector Log Aggregation, imgproxy, Supabase Studio.</li>
+                <li>Migration der Produktionsinfrastruktur von Supabase Cloud auf Hetzner VPS (Ubuntu 22.04) &mdash; Einhaltung von Datenschutzanforderungen, kein kritischer Ausfall.</li>
+                <li>Behebung kritischer Supabase-Realtime-Fehler &mdash; Wiederherstellung der Live-Synchronisierung &uuml;ber iOS, Android und Web-Admin-Portal.</li>
+                <li>End-to-End-Release-Pipelines f&uuml;r iOS &amp; Android: FlutterFlow, App Store Connect, Google Play Console, Code-Signing.</li>
+                <li>Sicherheitsh&auml;rtung: UFW, SSH-Hardening, Secrets via Umgebungsvariablen, Container-Netzwerkisolierung, Log-Rotation.</li>
+                <li>Einheitliche Push-Notification-Schicht: Firebase Cloud Messaging, OEM Push (OnePlus / OneSignal), transaktionales SMTP.</li>
             </ul>
         </div>
 
         <div class="job-block">
             <div class="job-header">
-                <span class="job-title">Web Media Operations Lead</span>
-                <span class="job-date">2017 &ndash; 2022</span>
-            </div>
-            <div class="job-company">Mitgr&uuml;nder &middot; Web Publishing &amp; Infrastruktur</div>
-            <ul>
-                <li>Mitgr&uuml;ndung und Betrieb eines Web-Media-Unternehmens: Aufbau und Verwaltung eines Portfolios von <strong>700+ aktiven Webprojekten</strong> mit einem verteilten Team von bis zu 20 Personen (Entwickler, Redakteure, Freelancer).</li>
-                <li>Vollst&auml;ndige Verantwortung f&uuml;r den Server-Stack (Apache / Nginx / MySQL) &mdash; Provisionierung, Performance-Optimierung unter variablem Traffic, Uptime-Monitoring und Kostenoptimierung.</li>
-                <li>Steuerung von Team-Workflows, Auftragnehmer-Beziehungen und Projektabwicklung &uuml;ber Content, Entwicklung und technischen Betrieb hinweg.</li>
-            </ul>
-        </div>
-
-        <div class="job-block">
-            <div class="job-header">
-                <span class="job-title">Selbstst&auml;ndiger Infrastruktur- &amp; Web-Betrieb</span>
+                <span class="job-title">Infrastruktur Engineer (Projektarbeit)</span>
                 <span class="job-date">2022 &ndash; 2024</span>
             </div>
-            <div class="job-company">Selbstst&auml;ndig &middot; Web Operations</div>
+            <div class="job-company">Web-Infrastruktur &middot; Remote</div>
             <ul>
-                <li>Eigenst&auml;ndige Wartung und Optimierung der verbleibenden Web-Infrastruktur nach Gesch&auml;ftsaufl&ouml;sung &mdash; Server-Konsolidierung, Kostenreduktion, CMS-Plattform-Experimente.</li>
+                <li>Servermigration, Kostenoptimierung und CMS-Modernisierung f&uuml;r bestehende Web-Projekte.</li>
             </ul>
         </div>
 
-        <h2>Open-Source-Projekte</h2>
-
-        <div class="proj-block">
-            <div class="proj-name">eigenbase</div>
-            <div class="proj-desc">Einzeiliges Ubuntu-24.04-Workstation-Setup &mdash; Ansible-Rollen f&uuml;r Docker, Kubernetes, Azure CLI, Ollama, Dotfiles.</div>
-        </div>
-        <div class="proj-block">
-            <div class="proj-name">openwebui-systemd-stack</div>
-            <div class="proj-desc">Produktionsreifer lokaler KI-Stack (Ollama + Open WebUI) &mdash; Docker, systemd-Dienstverwaltung, DSGVO-konform, keine Cloud-Abh&auml;ngigkeit.</div>
-        </div>
-        <div class="proj-block">
-            <div class="proj-name">local-whisper-obsidian</div>
-            <div class="proj-desc">Vollst&auml;ndig offline Voice-to-Note-Pipeline &mdash; faster-whisper auf CPU, Python, systemd, automatisch ausgel&ouml;st via Syncthing. Kein API-Key, keine Cloud.</div>
+        <div class="job-block">
+            <div class="job-header">
+                <span class="job-title">Lead IT Operations</span>
+                <span class="job-date">2017 &ndash; 2022</span>
+            </div>
+            <div class="job-company">Web Publishing &amp; Infrastruktur</div>
+            <ul>
+                <li>Aufbau und Skalierung einer Infrastruktur f&uuml;r ein Portfolio von <strong>700+ aktiven Webprojekten</strong> mit einem verteilten Team von bis zu 20 Personen (Entwickler, Redakteure, Freelancer).</li>
+                <li>Vollst&auml;ndige Serverinfrastruktur (Apache / Nginx / MySQL) &mdash; Provisionierung, Performance-Tuning unter variabler Last, Monitoring, Kostenoptimierung.</li>
+                <li>Steuerung von Team-Workflows, Auftragnehmerbeziehungen und technischer Projektabwicklung.</li>
+            </ul>
         </div>
 
-        <h2>Ausbildung &amp; Zertifizierungen</h2>
+        <h2>Pers&ouml;nliche Projekte</h2>
+
+        <a href="https://github.com/serg-markovich" target="_blank" class="github-link">
+            &#128279; github.com/serg-markovich
+        </a>
+
+        <div class="proj-grid">
+            <div class="proj-card">
+                <div class="proj-name"><a href="https://github.com/serg-markovich/local-whisper-obsidian" target="_blank">local-whisper-obsidian</a></div>
+                <div class="proj-desc">Vollst&auml;ndig offline Voice-to-Note-Pipeline &mdash; faster-whisper auf CPU, Python, systemd, automatisch ausgel&ouml;st via Syncthing. Keine API-Keys, keine Cloud.</div>
+                <div class="proj-tags"><span>Python</span><span>systemd</span><span>Docker</span></div>
+            </div>
+            <div class="proj-card">
+                <div class="proj-name"><a href="https://github.com/serg-markovich/eigenbase" target="_blank">eigenbase</a></div>
+                <div class="proj-desc">Ein-Befehl Ubuntu 24.04 Workstation-Bootstrap &mdash; Ansible-Rollen f&uuml;r Docker, Kubernetes, Azure CLI, Ollama, Dotfiles.</div>
+                <div class="proj-tags"><span>Ansible</span><span>Bash</span><span>Ubuntu</span></div>
+            </div>
+            <div class="proj-card">
+                <div class="proj-name"><a href="https://github.com/serg-markovich/eigenstack" target="_blank">eigenstack</a></div>
+                <div class="proj-desc">Self-Hosted Personal Cloud &mdash; volle Datenkontrolle, IaC-Prinzipien, reproduzierbare Deployments.</div>
+                <div class="proj-tags"><span>IaC</span><span>Docker</span><span>Makefile</span></div>
+            </div>
+            <div class="proj-card">
+                <div class="proj-name"><a href="https://github.com/serg-markovich/openwebui-systemd-stack" target="_blank">openwebui-systemd-stack</a></div>
+                <div class="proj-desc">Produktionsreifer lokaler KI-Stack (Ollama + Open WebUI) &mdash; Docker, systemd, DSGVO-konform, keine Cloud.</div>
+                <div class="proj-tags"><span>Docker</span><span>systemd</span><span>Ollama</span></div>
+            </div>
+        </div>
+
+        <h2>Ausbildung &amp; Zertifikate</h2>
         <table class="skills-table">
             <tr>
-                <td class="skills-category">Zertifizierung:</td>
-                <td><strong>Microsoft Certified: Azure Administrator Associate (AZ-104)</strong> &mdash; <em>In Vorbereitung, 2026</em></td>
+                <td class="skills-category">Zertifikat:</td>
+                <td><strong>Microsoft Certified: Azure Administrator Associate (AZ-104)</strong> &mdash; <em>in Vorbereitung</em></td>
             </tr>
             <tr>
                 <td class="skills-category">Sprachen:</td>
                 <td>
-                    <strong>Deutsch:</strong> B1 (Integrationskurs-Zertifikat, 2026) &middot; B2 gesprochen<br>
-                    <strong>Englisch:</strong> C1 Advanced (EF SET-Zertifikat, Mai 2026)<br>
+                    <strong>Deutsch:</strong> B1 zertifiziert (Integrationskurs, 2026) &middot; B2 aktive Anwendung<br>
+                    <strong>Englisch:</strong> C1 Advanced (EF SET Zertifikat, Mai 2026)<br>
                     <strong>Ukrainisch / Russisch:</strong> Muttersprache
                 </td>
             </tr>
             <tr>
                 <td class="skills-category">Abschluss:</td>
-                <td>P&auml;dagogische Hochschule, Sozialpsychologie &mdash; 2004&ndash;2009</td>
+                <td>P&auml;dagogische Universit&auml;t, Sozialpsychologie &mdash; 2004&ndash;2009</td>
             </tr>
         </table>
 
     </main>
 
     <script>
+        const MOON = "🌙";
+        const SUN = "☀️";
         const toggleBtn = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
         const body = document.body;
         const currentTheme = localStorage.getItem('theme') || 'dark';
         if (currentTheme === 'light') {
             body.classList.add('light-theme');
-            themeIcon.textContent = '🌙';
+            themeIcon.textContent = MOON;
         } else {
-            themeIcon.textContent = '☀️';
+            themeIcon.textContent = SUN;
         }
         toggleBtn.addEventListener('click', () => {
             body.classList.toggle('light-theme');
             if (body.classList.contains('light-theme')) {
-                themeIcon.textContent = '🌙';
+                themeIcon.textContent = MOON;
                 localStorage.setItem('theme', 'light');
             } else {
-                themeIcon.textContent = '☀️';
+                themeIcon.textContent = SUN;
                 localStorage.setItem('theme', 'dark');
             }
         });
