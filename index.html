@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Serg Markovich - DevOps Engineer | Stuttgart</title>
-    <meta name="description" content="DevOps Engineer focused on cloud infrastructure, automation, and CI/CD pipelines. Based in Stuttgart, Germany.">
+    <title>Serg Markovich – DevOps / Platform Engineer | Stuttgart</title>
+    <meta name="description" content="DevOps / Platform Engineer with 10+ years in production infrastructure. Docker, Kubernetes, Ansible, Azure. Based in Stuttgart, Germany.">
     
-    <!-- SEO: hreflang tags -->
     <link rel="alternate" hreflang="en" href="https://serg-markovich.de/" />
     <link rel="alternate" hreflang="de" href="https://serg-markovich.de/de/" />
     <link rel="alternate" hreflang="x-default" href="https://serg-markovich.de/" />
@@ -14,30 +13,35 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Language Switcher -->
     <div class="lang-switcher">
-        <a href="/de/" class="lang-btn active" title="Deutsch">
+        <a href="/de/" class="lang-btn" title="Deutsch">
             <span class="flag">🇩🇪</span>
             <span class="lang-text">DE</span></a>
-        <a href="/" class="lang-btn" title="English">
+        <a href="/" class="lang-btn active" title="English">
             <span class="flag">🇬🇧</span>
             <span class="lang-text">EN</span></a>
     </div>
-        <main>
+
+    <main>
         <header>
             <h1>Serg Markovich</h1>
-            <p class="subtitle">DevOps Engineer | Stuttgart, Germany</p>
-                <div id="nav-placeholder"></div>
-                <script>
+            <p class="subtitle">DevOps / Platform Engineer | Stuttgart, Germany</p>
+            <div id="nav-placeholder"></div>
+            <script>
                 fetch('/nav.html')
                     .then(r => r.text())
                     .then(html => document.getElementById('nav-placeholder').innerHTML = html);
-                </script>
+            </script>
         </header>
+
         <section class="about">
             <h2>About</h2>
-            <p>DevOps Engineer focused on cloud infrastructure, automation, and CI/CD pipelines.</p>
-            <p>Currently building expertise in Azure, Docker, Kubernetes, and Infrastructure as Code.</p>
+            <p>IT engineer with 10+ years operating production infrastructure —
+            Linux, Docker, CI/CD, 700+ managed servers.</p>
+            <p>In 2025: architected and deployed a self-hosted 14-service Supabase stack
+            for a production healthcare platform on Hetzner VPS.</p>
+            <p>Available immediately · Stuttgart · hybrid preferred ·
+            <a href="/cv.html">Full CV →</a></p>
         </section>
 
         <section class="terminal">
@@ -46,42 +50,34 @@
             </div>
             <div class="terminal-body">
                 <p><span class="prompt">serg@devops:~$</span> whoami</p>
-                <p class="output">DevOps Engineer | Stuttgart, Germany</p>
-                
+                <p class="output">DevOps / Platform Engineer | Stuttgart, Germany</p>
+
                 <p><span class="prompt">serg@devops:~$</span> cat skills.txt</p>
-                <p class="output">Docker • Kubernetes • Ansible • Terraform</p>
-                <p class="output">Azure • CI/CD • Linux • Python • Bash</p>
-                
-                <p><span class="prompt">serg@devops:~$</span> cat certifications.txt</p>
-                <p class="output">Microsoft Azure AZ-104 (in progress)</p>
-                
-                <p><span class="prompt">serg@devops:~$</span> git status</p>
-                <p class="output">On branch main</p>
-                <p class="output">Status: Open to opportunities</p>
-                
+                <p class="output">Docker · Kubernetes · Ansible · Terraform</p>
+                <p class="output">Azure · GitHub Actions · Linux · Bash · Python</p>
+
+                <p><span class="prompt">serg@devops:~$</span> cat projects.txt</p>
+                <p class="output">healthcare-supabase-stack · eigenstack · local-whisper-obsidian</p>
+
+                <p><span class="prompt">serg@devops:~$</span> cat status.txt</p>
+                <p class="output">Open to DevOps / Platform Engineer roles in Germany</p>
+
                 <p><span class="prompt">serg@devops:~$</span> <span class="cursor">█</span></p>
             </div>
         </section>
 
-        <section class="links">        
+        <section class="links">
             <h2>Find me online</h2>
             <ul>
-                <li>
-                    <a href="https://github.com/serg-markovich" target="_blank" rel="noopener noreferrer">
-                        GitHub
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.linkedin.com/in/serg-markovich/" target="_blank" rel="noopener noreferrer">
-                        LinkedIn
-                    </a>
-                </li>
+                <li><a href="https://github.com/serg-markovich" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                <li><a href="https://www.linkedin.com/in/serg-markovich/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                <li><a href="/cv.html">CV / Resume</a></li>
             </ul>
-            <p><em>Portfolio website coming soon...</em></p>
         </section>
     </main>
-        <footer>
-            <p>© 2026 Serg Markovich | <a href="contacts.html">Contact</a></p>
-        </footer>
+
+    <footer>
+        <p>© 2026 Serg Markovich | <a href="contacts.html">Contact</a></p>
+    </footer>
 </body>
 </html>
