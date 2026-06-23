@@ -1,83 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Serg Markovich – DevOps / Platform Engineer | Stuttgart</title>
-    <meta name="description" content="DevOps / Platform Engineer with 10+ years in production infrastructure. Docker, Kubernetes, Ansible, Azure. Based in Stuttgart, Germany.">
-    
-    <link rel="alternate" hreflang="en" href="https://serg-markovich.de/" />
-    <link rel="alternate" hreflang="de" href="https://serg-markovich.de/de/" />
-    <link rel="alternate" hreflang="x-default" href="https://serg-markovich.de/" />
-    
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Serg Markovich — DevOps Engineer in Stuttgart building self-hosted infrastructure, Linux automation, and reproducible deployments on Hetzner." />
+  <title>Serg Markovich — DevOps Engineer | Stuttgart</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="alternate" hreflang="en" href="https://serg-markovich.de/" />
+  <link rel="alternate" hreflang="de" href="https://serg-markovich.de/de/" />
+  <link rel="alternate" hreflang="x-default" href="https://serg-markovich.de/" />
+  <style>
+    :root{--bg:#0b1020;--panel:#11182e;--text:#e8eefc;--muted:#aeb8d6;--line:rgba(255,255,255,.10);--accent:#7aa2ff;--accent2:#65d6a8;--max:1120px;--radius:20px;--shadow:0 16px 50px rgba(0,0,0,.28)}
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(1200px 600px at 20% 0%, rgba(122,162,255,.18), transparent 60%),radial-gradient(900px 450px at 100% 10%, rgba(101,214,168,.10), transparent 55%),var(--bg);color:var(--text);line-height:1.55}
+    a{color:inherit} a:hover{color:var(--accent)}
+    .wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 40px}
+    .nav{display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-bottom:18px}
+    .nav .links{display:flex;flex-wrap:wrap;gap:10px}
+    .nav a{text-decoration:none;color:var(--muted);font-size:14px;padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.03)}
+    .nav a:hover{border-color:rgba(122,162,255,.45);background:rgba(122,162,255,.08)}
+    .hero{display:grid;grid-template-columns:180px 1fr;gap:24px;padding:24px;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));box-shadow:var(--shadow)}
+    .photo{width:180px;height:180px;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--panel)}
+    .photo img{width:100%;height:100%;object-fit:cover;display:block}
+    h1{margin:0 0 6px;font-size:clamp(30px,4vw,48px);line-height:1.05}
+    .role{font-size:18px;color:var(--accent2);font-weight:650;margin-bottom:8px}
+    .meta{color:var(--muted);display:flex;flex-wrap:wrap;gap:10px 14px;font-size:14px}
+    .summary{margin-top:18px;max-width:860px;color:#d7def3;font-size:16px}
+    .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;text-decoration:none;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--text);font-size:14px}
+    .btn.primary{background:rgba(122,162,255,.14);border-color:rgba(122,162,255,.28)}
+    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:20px;margin-top:20px}
+    .card{border:1px solid var(--line);border-radius:var(--radius);background:rgba(255,255,255,.03);box-shadow:var(--shadow);overflow:hidden}
+    .card h2{margin:0;padding:18px 20px 12px;font-size:18px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.02)}
+    .card .body{padding:18px 20px}
+    .chips{display:flex;flex-wrap:wrap;gap:10px}
+    .chip{display:inline-flex;padding:8px 12px;border-radius:999px;background:rgba(122,162,255,.12);border:1px solid rgba(122,162,255,.20);color:#dbe5ff;font-size:13px}
+    .skills{display:grid;grid-template-columns:1fr;gap:12px}
+    .skill{padding-bottom:12px;border-bottom:1px solid var(--line)}
+    .skill:last-child{border-bottom:none;padding-bottom:0}
+    .skill strong{display:block;margin-bottom:4px}.skill span{color:var(--muted);font-size:14px}
+    .timeline{display:grid;gap:14px}
+    .item{padding:16px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.025)}
+    .item-top{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+    .item h3{margin:0;font-size:16px}.item .date{color:var(--muted);font-size:13px;white-space:nowrap}.item .sub{color:var(--accent2);font-weight:600;font-size:14px;margin-top:2px}
+    .item ul{margin:10px 0 0 18px;padding:0}.item li{margin:6px 0;color:#dbe2f5}
+    .projects{display:grid;grid-template-columns:repeat(2, minmax(0,1fr));gap:14px}
+    .project{padding:16px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.025)}
+    .project h3{margin:0 0 8px;font-size:16px}.project p{margin:0 0 10px;color:#dbe2f5}.project ul{margin:0 0 0 18px;color:#dbe2f5}
+    .footer{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:20px;color:var(--muted);font-size:13px;padding:12px 2px 0}
+    @media (max-width:860px){.hero{grid-template-columns:1fr}.photo{width:140px;height:140px}.grid{grid-template-columns:1fr}.projects{grid-template-columns:1fr}}
+    @media (max-width:520px){.wrap{padding:14px}.hero{padding:18px}.card h2{padding:16px 16px 10px}.card .body{padding:16px}.meta{gap:6px 10px}h1{font-size:34px}}
+    @media print{body{background:#fff;color:#111}.nav,.actions{display:none}.hero,.card,.item,.project{box-shadow:none}.hero,.card,.item,.project{border-color:#ddd;background:#fff}.role,.sub,.chip{color:#222}a{text-decoration:none;color:#111}}
+  </style>
 </head>
 <body>
-    <div class="lang-switcher">
-        <a href="/de/" class="lang-btn" title="Deutsch">
-            <span class="flag">🇩🇪</span>
-            <span class="lang-text">DE</span></a>
-        <a href="/" class="lang-btn active" title="English">
-            <span class="flag">🇬🇧</span>
-            <span class="lang-text">EN</span></a>
+  <main class="wrap">
+    <div class="nav">
+      <div class="links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#knowledge">Knowledge</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="links">
+        <a href="/de/" title="Deutsch">🇩🇪 DE</a>
+        <a href="/" class="active" title="English">🇬🇧 EN</a>
+      </div>
     </div>
 
-    <main>
-        <header>
-            <h1>Serg Markovich</h1>
-            <p class="subtitle">DevOps / Platform Engineer | Stuttgart, Germany</p>
-            <div id="nav-placeholder"></div>
-            <script>
-                fetch('/nav.html')
-                    .then(r => r.text())
-                    .then(html => document.getElementById('nav-placeholder').innerHTML = html);
-            </script>
-        </header>
+    <section class="hero" id="top">
+      <div class="photo">
+        <img src="me.jpeg" alt="Serg Markovich" />
+      </div>
+      <div>
+        <h1>Serg Markovich</h1>
+        <div class="role">DevOps Engineer · Stuttgart, Germany</div>
+        <div class="meta">
+          <span>Linux · Docker · CI/CD · Automation</span>
+          <span>Self-hosted infrastructure · Hetzner · Observability</span>
+          <span><a href="https://serg-markovich.de/cv">Public CV</a></span>
+        </div>
+        <p class="summary">I build and operate self-hosted infrastructure with a strong focus on Linux automation, reproducible deployments, troubleshooting, and production reliability. My work centers on practical DevOps, ownership, and public learning in the open.</p>
+        <div class="actions">
+          <a class="btn primary" href="#projects">Featured Projects</a>
+          <a class="btn" href="#knowledge">Knowledge Base</a>
+          <a class="btn" href="mailto:me@serg-markovich.de">Contact Me</a>
+        </div>
+      </div>
+    </section>
 
-        <section class="about">
-            <h2>About</h2>
-            <p>IT engineer with 10+ years operating production infrastructure —
-            Linux, Docker, CI/CD, 700+ managed servers.</p>
-            <p>In 2025: architected and deployed a self-hosted 14-service Supabase stack
-            for a production healthcare platform on Hetzner VPS.</p>
-            <p>Available immediately · Stuttgart · hybrid preferred ·
-            <a href="/cv.html">Full CV →</a></p>
-        </section>
+    <section class="grid" id="about" style="margin-top:20px;">
+      <div class="card">
+        <h2>About</h2>
+        <div class="body">
+          <p>I’m a DevOps Engineer based in Stuttgart, working on Linux systems, Docker-based platforms, CI/CD, monitoring, and self-hosted services. I like building things that are reproducible, observable, and boring in production — in the best possible way.</p>
+          <p>My background combines long-term infrastructure ownership, migration work, and hands-on delivery. I prefer systems that can be explained, maintained, and improved without hidden magic.</p>
+        </div>
+      </div>
 
-        <section class="terminal">
-            <div class="terminal-header">
-                <span>bash</span> — serg@devops
-            </div>
-            <div class="terminal-body">
-                <p><span class="prompt">serg@devops:~$</span> whoami</p>
-                <p class="output">DevOps / Platform Engineer | Stuttgart, Germany</p>
+      <div class="card">
+        <h2>Core Stack</h2>
+        <div class="body skills">
+          <div class="skill"><strong>Linux & Systems</strong><span>Ubuntu, Debian, systemd, SSH, UFW</span></div>
+          <div class="skill"><strong>Containers</strong><span>Docker, Docker Compose, K3s</span></div>
+          <div class="skill"><strong>Automation</strong><span>Ansible, GitHub Actions, Bash, Terraform</span></div>
+          <div class="skill"><strong>Monitoring</strong><span>Prometheus, Grafana, Uptime Kuma, logging</span></div>
+        </div>
+      </div>
+    </section>
 
-                <p><span class="prompt">serg@devops:~$</span> cat skills.txt</p>
-                <p class="output">Docker · Kubernetes · Ansible · Terraform</p>
-                <p class="output">Azure · GitHub Actions · Linux · Bash · Python</p>
+    <section class="card" id="projects" style="margin-top:20px;">
+      <h2>Featured Projects</h2>
+      <div class="body projects">
+        <article class="project">
+          <h3>eigenstack</h3>
+          <p>Self-hosted infrastructure platform on Hetzner for reproducible deployments, observability, and privacy-first services.</p>
+          <ul>
+            <li>Terraform modules for reproducible Hetzner provisioning.</li>
+            <li>K3s cluster with GitHub Actions CI/CD pipeline.</li>
+            <li>Prometheus/Grafana monitoring with alerting.</li>
+          </ul>
+        </article>
 
-                <p><span class="prompt">serg@devops:~$</span> cat projects.txt</p>
-                <p class="output">healthcare-supabase-stack · eigenstack · local-whisper-obsidian</p>
+        <article class="project">
+          <h3>Healthcare SaaS Platform</h3>
+          <p>Self-hosted Supabase production stack on Hetzner with cloud-to-self-hosted migration and hardening work.</p>
+          <ul>
+            <li>Migration from managed cloud to self-hosted infrastructure.</li>
+            <li>Realtime incident resolution and reliability work.</li>
+            <li>UFW, SSH hardening, secrets handling, and container isolation.</li>
+          </ul>
+        </article>
 
-                <p><span class="prompt">serg@devops:~$</span> cat status.txt</p>
-                <p class="output">Open to DevOps / Platform Engineer roles in Germany</p>
+        <article class="project">
+          <h3>local-whisper-obsidian</h3>
+          <p>Local voice-to-Obsidian pipeline using Faster Whisper, systemd, and Docker.</p>
+        </article>
 
-                <p><span class="prompt">serg@devops:~$</span> <span class="cursor">█</span></p>
-            </div>
-        </section>
+        <article class="project">
+          <h3>openwebui-systemd-stack</h3>
+          <p>Self-hosted local AI stack with systemd service management, Docker networking, and desktop integration.</p>
+        </article>
+      </div>
+    </section>
 
-        <section class="links">
-            <h2>Find me online</h2>
-            <ul>
-                <li><a href="https://github.com/serg-markovich" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-                <li><a href="https://www.linkedin.com/in/serg-markovich/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-                <li><a href="/cv.html">CV / Resume</a></li>
-            </ul>
-        </section>
-    </main>
+    <section class="grid" style="margin-top:20px;">
+      <div class="card" id="knowledge">
+        <h2>Knowledge Base</h2>
+        <div class="body">
+          <p>I maintain a public knowledge base with notes, case studies, and learning logs while I build. It’s the place where I document what I’m exploring and how I solve practical infrastructure problems.</p>
+          <div class="chips">
+            <span class="chip"><a href="https://notes.serg-markovich.de" target="_blank" rel="noreferrer">notes.serg-markovich.de</a></span>
+          </div>
+        </div>
+      </div>
 
-    <footer>
-        <p>© 2026 Serg Markovich | <a href="contacts.html">Contact</a></p>
-    </footer>
+      <div class="card" id="contact">
+        <h2>Contact</h2>
+        <div class="body">
+          <div class="chips">
+            <span class="chip"><a href="mailto:me@serg-markovich.de">me@serg-markovich.de</a></span>
+            <span class="chip"><a href="https://www.linkedin.com/in/serg-markovich/" target="_blank" rel="noreferrer">LinkedIn</a></span>
+            <span class="chip"><a href="https://github.com/serg-markovich" target="_blank" rel="noreferrer">GitHub</a></span>
+            <span class="chip"><a href="https://serg-markovich.de/cv">Public CV</a></span>
+          </div>
+          <p style="margin-top:14px;color:var(--muted);">Open to DevOps, Infrastructure, and Linux roles in Germany where I can work autonomously and close infrastructure tasks end to end.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      <span>© 2026 Serg Markovich</span>
+      <span>DevOps Engineer · Stuttgart, Germany</span>
+    </div>
+  </main>
 </body>
 </html>

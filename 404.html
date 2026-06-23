@@ -1,45 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Page Not Found</title>
-    
-    <!-- SEO: hreflang tags -->
-    <link rel="alternate" hreflang="en" href="https://serg-markovich.de/404.html" />
-    <link rel="alternate" hreflang="de" href="https://serg-markovich.de/de/404.html" />
-    <link rel="alternate" hreflang="x-default" href="https://serg-markovich.de/404.html" />
-    
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>404 - Page Not Found | Serg Markovich</title>
+  <link rel="alternate" hreflang="en" href="https://serg-markovich.de/404.html" />
+  <link rel="alternate" hreflang="de" href="https://serg-markovich.de/de/404.html" />
+  <link rel="alternate" hreflang="x-default" href="https://serg-markovich.de/404.html" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <style>
+    :root{--bg:#0b1020;--panel:#11182e;--text:#e8eefc;--muted:#aeb8d6;--line:rgba(255,255,255,.10);--accent:#7aa2ff;--accent2:#65d6a8;--max:920px;--radius:20px;--shadow:0 16px 50px rgba(0,0,0,.28)}
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(1200px 600px at 20% 0%, rgba(122,162,255,.18), transparent 60%),radial-gradient(900px 450px at 100% 10%, rgba(101,214,168,.10), transparent 55%),var(--bg);color:var(--text);line-height:1.55}
+    a{color:inherit} a:hover{color:var(--accent)} .wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 40px}
+    .nav{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px}.nav .links{display:flex;gap:10px;flex-wrap:wrap}
+    .nav a{text-decoration:none;color:var(--muted);font-size:14px;padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.03)}
+    .nav a:hover{border-color:rgba(122,162,255,.45);background:rgba(122,162,255,.08)}
+    .hero{padding:36px 24px;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));box-shadow:var(--shadow);text-align:center}
+    h1{margin:0;font-size:clamp(64px,10vw,112px);line-height:1;color:var(--accent2)}
+    .subtitle{margin:8px 0 0;font-size:22px;color:var(--text)}
+    .body{margin-top:18px;color:#dbe2f5;font-size:16px;max-width:640px;margin-left:auto;margin-right:auto}
+    .actions{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:22px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;text-decoration:none;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--text);font-size:14px}
+    .btn.primary{background:rgba(122,162,255,.14);border-color:rgba(122,162,255,.28)}
+    footer{max-width:var(--max);margin:16px auto 0;padding:0 20px 24px;color:var(--muted);font-size:13px}
+    @media (max-width:520px){.wrap{padding:14px}.hero{padding:26px 18px}.subtitle{font-size:18px}}
+  </style>
 </head>
 <body>
-    <!-- Language Switcher -->
-    <div class="lang-switcher">
-        <a href="/" class="lang-btn active">
-            <span class="flag">🇬🇧</span>
-            <span class="lang-text">EN</span></a>
-        <a href="/de/" class="lang-btn">
-            <span class="flag">🇩🇪</span>
-            <span class="lang-text">DE</span></a>
+  <main class="wrap">
+    <div class="nav">
+      <div class="links">
+        <a href="/">Home</a>
+        <a href="https://notes.serg-markovich.de" target="_blank" rel="noreferrer">Knowledge Base</a>
+      </div>
+      <div class="links">
+        <a href="/" class="active">🇬🇧 EN</a>
+        <a href="/de/">🇩🇪 DE</a>
+      </div>
     </div>
-    <main>
-        <header>  
-            <h1>404</h1>
-            <p class="subtitle">Page Not Found</p>
-                <div id="nav-placeholder"></div>
-                <script>
-                fetch('/nav.html')
-                    .then(r => r.text())
-                    .then(html => document.getElementById('nav-placeholder').innerHTML = html);
-                </script>
-        </header>
-        <section class="error-content">
-            <p>Oops! The page you're looking for doesn't exist.</p>
-            <p><a href="/">← Back to Home</a></p>
-        </section>
-    </main>
-        <footer>
-            <p>© 2026 Serg Markovich</p>
-        </footer>
+
+    <section class="hero">
+      <h1>404</h1>
+      <p class="subtitle">Page not found</p>
+      <p class="body">The page you’re looking for doesn’t exist, or the link may be outdated. Use the links below to get back to the main site or the knowledge base.</p>
+      <div class="actions">
+        <a class="btn primary" href="/">← Back to Home</a>
+        <a class="btn" href="https://notes.serg-markovich.de" target="_blank" rel="noreferrer">Open Knowledge Base</a>
+      </div>
+    </section>
+  </main>
+  <footer>© 2026 Serg Markovich</footer>
 </body>
 </html>
